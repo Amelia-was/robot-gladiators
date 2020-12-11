@@ -1,21 +1,16 @@
 // player variables
 var playerName = window.prompt("What is your robot's name?");
 var playerHealth = 100;
-var playerAttack = 100;
+var playerAttack = 10;
 var playerMoney = 10;
 
-// log multiple values at once like this
-console.log(playerName, playerAttack, playerHealth);
-
 // enemy variables
-var enemyName = "Roborto";
+var enemyNames = ["Roborto", "Amy Android", "Robo Trumble"];
 var enemyHealth = 50;
 var enemyAttack = 12;
 
-// fight function -- created via function expression
-var fight = function() {
-  window.alert("Welcome to Robot Gladiators!");
-
+// fight function -- created via function expression (not function declaration)
+var fight = function(enemyName) {
   var promptFight = window.prompt("Would you like to FIGHT or SKIP this battle? Enter 'FIGHT' or 'SKIP' to choose.");
   if (promptFight === "FIGHT" || promptFight === "fight") {
       //Subtract the value of `playerAttack` from the value of `enemyHealth` and use that result to update the value in the `enemyHealth` variable
@@ -60,9 +55,13 @@ var fight = function() {
       }
   }
   else {
-      window.alert("not a valid option!");
+      window.alert("Not a valid option!");
       fight();
   }
 };
 
-fight();
+window.alert("Welcome to Robot Gladiators!");
+
+for (var i = 0; i < enemyNames.length ; i++) {
+    fight(enemyNames[i]);
+}
